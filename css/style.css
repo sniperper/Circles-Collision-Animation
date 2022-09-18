@@ -1,0 +1,27 @@
+body{
+    margin: 0px;
+    min-height: 100vh;
+
+    /* display: flex;
+    align-items: center; */
+    
+    background: #222;
+    
+    font-family: 'Open Sans', sans-serif;
+    line-height: 1.5;
+}
+
+h1, h2, h3, h4, h5, h6{
+    margin: 0;
+    font-family: inherit;
+    line-height: 1.1;
+    color: inherit;
+}
+
+.canvas {
+    display: block;
+}
+
+::-webkit-scrollbar {
+    display: none;
+}
