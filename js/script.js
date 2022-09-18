@@ -6,16 +6,17 @@ window.onload = function() {
 
 
 class CirclesMovement {
-    constructor() {
+    constructor() {     // You can change properties of circles here
         this.numberOfCircles = 100;
-        this.minRadius = 20;
-        this.variantRadius = 15;
-        this.strokeColor = 'white';
-        this.fillColor = 'rgb(240, 248, 255, 0.2)'
+        this.minRadius = 20;    // Minimal radius of circle
+        this.variantRadius = 1; // Circle size difference. default = 1;
+                                // Not recommend to use big numbers. It can cause visual bugs
+        this.strokeColor = 'white'; // Color of circle stroke
+        this.fillColor = 'rgb(240, 248, 255, 0.2)' // Circle inner color
     }
 
     init() {
-        this.createCanvas();
+        this.getCanvas();
         this.resetCanvasSize();
         this.createCircles();
         this.updateAnimation();
@@ -28,7 +29,7 @@ class CirclesMovement {
     updateAnimation() {
         this.clearCanvas();
         this.updateCircles();
-        this.getIntersection();
+        this.getCollision();
         this.circles.forEach(circle => {
             this.drawCircle(circle.x, circle.y, circle.radius, circle.strokeColor, circle.fillColor);
         })
@@ -90,7 +91,7 @@ class CirclesMovement {
         this.ctx.fill();        
     }
 
-    getIntersection() {
+    getCollision() {
         for (let i = 0; i < this.circles.length; i++) {
             let circleA = this.circles[i];
             for (let j = i+1; j < this.circles.length; j++) {
